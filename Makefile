@@ -62,8 +62,8 @@ clean:
 	@echo -e "$(RED)Deleted : [$(OBJ)] $(RESET)"
 
 fclean: clean
-	rm -f $(NAME)
-	rm -f $(LIBFT_DIR)/libft.a
+	rm -rf $(NAME)
+	rm -rf $(LIBFT_DIR)/libft.a
 	@echo -e "$(RED)Deleted : [$(NAME)] [$(LIBFT)] $(RESET)"
 
 re: fclean all
