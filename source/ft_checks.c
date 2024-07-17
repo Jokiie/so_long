@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 23:05:07 by ccodere           #+#    #+#             */
-/*   Updated: 2024/07/11 17:21:04 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/07/17 14:40:17 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_check_is_valid_map(t_game *game, int y, int x)
 			ft_error_notification("Map must be surrounded by walls", game);
 	}
 	else if (game->map.width > MAX_WIDTH || game->map.height > MAX_HEIGHT)
-		ft_error_notification("Map is too big", game);
+		ft_error_notification("Map is too large", game);
 	else if (game->map.height == game->map.width)
 		ft_error_notification("Map must be rectangular", game);
 	else if (!ft_strchr("CEP01", game->map.tab[y][x]))

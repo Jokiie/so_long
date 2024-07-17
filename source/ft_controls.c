@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 00:48:23 by ccodere           #+#    #+#             */
-/*   Updated: 2024/07/11 13:11:10 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/07/17 14:46:26 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	ft_print_moves(t_game *game)
 
 	moves = ft_itoa(game->moves_count);
 	txt = ft_strjoin("MOVES : ", moves);
-	mlx_do_sync(game->mlx_ptr);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, (game->map.width * IMG_WIDTH)
 		- 100, 30, 0x000000, txt);
 	free(moves);
