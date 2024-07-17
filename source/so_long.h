@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 22:45:19 by ccodere           #+#    #+#             */
-/*   Updated: 2024/07/11 17:30:34 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/07/17 15:15:19 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,28 +123,12 @@ typedef struct s_game
 	int			moves_count;
 }				t_game;
 
-int				ft_error_notification(char *why, t_game *game);
-void			ft_init_vars(t_game *game);
-void			ft_count_tiles(t_game *game);
-void			ft_count_elements(t_game *game, int y, int x);
-int				ft_get_map_width(t_game *game);
-
-void			ft_read_map(t_game *game, char *argv);
-void			ft_render_map(t_game *game);
-void			ft_draw_tiles(t_game *game, int y, int x);
-void			ft_render_player(t_game *game, int y, int x);
+int				ft_depth_first_search(t_game *game);
+int				ft_is_path_valid(t_game *game, char **tmp_map);
 
 void			ft_check_map(t_game *game);
 void			ft_verify_game_elements(t_game *game);
 void			ft_check_is_valid_map(t_game *game, int y, int x);
-
-void			ft_print_tmp_map(char **tmp_map, t_game *game);
-char			**ft_make_tmp_map(t_game *game, char **zone);
-void			ft_floodfill(char **map, t_pos size, t_pos begin);
-void			ft_fill(char **map, t_pos size, t_pos cur, char visited);
-
-int				ft_depth_first_search(t_game *game);
-int				ft_is_path_valid(t_game *game, char **tmp_map);
 
 int				ft_define_controls(int key, t_game *game);
 void			ft_move_player(t_game *game, int new_y, int new_x,
@@ -154,22 +138,33 @@ void			ft_render_new_pos(t_game *game, int new_x, int new_y,
 void			ft_print_moves(t_game *game);
 void			ft_print_win(t_game *game);
 
-int				ft_draw_again(t_game *game);
-void			ft_put_img(t_game *game, t_img img, int x, int y);
-t_img			ft_define_img(void *mlx, char *path, t_game *game);
-void			ft_load_img(t_game *game);
-void			ft_load_mlx(t_game *game);
-
 void			ft_free_mlx(t_game *game);
 void			ft_free_tmp_map(t_game *game, char **tmp_map);
 void			ft_free_map(t_game *game);
 void			ft_free_game(t_game *game);
 int				ft_close_game(t_game *game);
 
-t_img			ft_new_img(t_game *game);
-t_img			ft_new_file_img(void *mlx, char *path, t_game *game);
-void			ft_put_pixel_img(t_img img, int x, int y, int color);
-unsigned int	ft_get_pixel_img(t_img img, int x, int y);
-void			ft_put_img_to_img(t_img dst, t_img src, int x, int y);
+void			ft_init_vars(t_game *game);
+void			ft_count_elements(t_game *game, int y, int x);
+void			ft_count_tiles(t_game *game);
+
+char			*ft_strjoin_free(char *s1, char const *s2);
+void			ft_read_map(t_game *game, char *argv);
+void			ft_render_map(t_game *game);
+void			ft_draw_tiles(t_game *game, int y, int x);
+void			ft_render_player(t_game *game, int y, int x);
+
+int				ft_draw_again(t_game *game);
+void			ft_put_img(t_game *game, t_img img, int x, int y);
+t_img			ft_define_img(void *mlx, char *path, t_game *game);
+void			ft_load_img(t_game *game);
+void			ft_load_mlx(t_game *game);
+
+char			**ft_make_tmp_map(t_game *game, char **zone);
+void			ft_floodfill(char **map, t_pos size, t_pos begin);
+void			ft_fill(char **map, t_pos size, t_pos cur, char visited);
+
+int				ft_error_notification(char *why, t_game *game);
+void			ft_check_arguments(t_game *game, int argc, char *argv[]);
 
 #endif
