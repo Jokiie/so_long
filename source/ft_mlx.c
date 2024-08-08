@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccodere <ccodere@student.42quebec.com>     +#+  +:+       +#+        */
+/*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 23:55:59 by ccodere           #+#    #+#             */
-/*   Updated: 2024/07/10 11:19:50 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:39:28 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	ft_draw_again(t_game *game)
-{
-	ft_render_map(game);
-	return (0);
-}
 
 void	ft_put_img(t_game *game, t_img img, int x, int y)
 {

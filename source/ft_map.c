@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccodere <ccodere@student.42quebec.com>     +#+  +:+       +#+        */
+/*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 23:02:15 by ccodere           #+#    #+#             */
-/*   Updated: 2024/07/10 11:24:28 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:29:51 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_read_map(t_game *game, char *argv)
 	if (map_fd == -1)
 		ft_error_notification("Can't open the map.", game);
 	map = ft_strdup("");
-	game->map.height = 0;
 	while (TRUE)
 	{
 		line = get_next_line(map_fd);

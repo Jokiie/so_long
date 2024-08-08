@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 00:48:23 by ccodere           #+#    #+#             */
-/*   Updated: 2024/07/17 14:46:26 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:58:59 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ int	ft_define_controls(int key, t_game *game)
 	else if (key == KEY_RIGHT || key == KEY_D)
 		ft_move_player(game, pos_y, pos_x + 1, RIGHT);
 	else if (key == KEY_ESC || key == KEY_Q)
-	{
-		ft_close_game(game);
-		exit(EXIT_SUCCESS);
-	}
+		ft_close_game();
 	else
 		return (0);
 	return (0);
@@ -51,8 +48,7 @@ void	ft_move_player(t_game *game, int new_y, int new_x, int player_dir)
 	if (game->map.tab[new_y][new_x] == MAP_EXIT && game->map.nb_coffees == 0)
 	{
 		ft_print_win(game);
-		ft_close_game(game);
-		exit(EXIT_SUCCESS);
+		ft_close_game();
 	}
 	ft_render_new_pos(game, new_x, new_y, player_dir);
 	ft_render_map(game);
@@ -70,7 +66,8 @@ void	ft_render_new_pos(t_game *game, int new_x, int new_y, int player_dir)
 	game->map.player_pos.x = new_x;
 	game->map.player_pos.y = new_y;
 	game->player_dir = player_dir;
-	game->map.tab[last_y][last_x] = FLOOR;
+	if (game->map.tab[last_y][last_x] == COFFEE)
+		game->map.tab[last_y][last_x] = FLOOR;
 	game->map.tab[new_y][new_x] = PLAYER;
 	game->moves_count++;
 }

@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 22:45:19 by ccodere           #+#    #+#             */
-/*   Updated: 2024/07/17 15:15:19 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:44:42 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 
 # define GREEN "\033[0;32m"
 # define RED "\033[1;31m"
+# define YELLOW "\033[1;33m"
 # define GREY "\033[0;90m"
 # define CYAN "\033[1;96m"
 # define RESET "\033[0m"
@@ -93,8 +94,6 @@ typedef struct s_map
 {
 	int			width;
 	int			height;
-	int			origin_width;
-	int			origin_height;
 	int			nb_coffees;
 	int			nb_players;
 	int			nb_exit;
@@ -138,11 +137,11 @@ void			ft_render_new_pos(t_game *game, int new_x, int new_y,
 void			ft_print_moves(t_game *game);
 void			ft_print_win(t_game *game);
 
-void			ft_free_mlx(t_game *game);
-void			ft_free_tmp_map(t_game *game, char **tmp_map);
+void			ft_free_img(t_game *game);
+void			ft_mlx_destroy_display(t_game *game);
 void			ft_free_map(t_game *game);
+void			ft_free_tmp_map(char **tmp_map);
 void			ft_free_game(t_game *game);
-int				ft_close_game(t_game *game);
 
 void			ft_init_vars(t_game *game);
 void			ft_count_elements(t_game *game, int y, int x);
@@ -154,7 +153,6 @@ void			ft_render_map(t_game *game);
 void			ft_draw_tiles(t_game *game, int y, int x);
 void			ft_render_player(t_game *game, int y, int x);
 
-int				ft_draw_again(t_game *game);
 void			ft_put_img(t_game *game, t_img img, int x, int y);
 t_img			ft_define_img(void *mlx, char *path, t_game *game);
 void			ft_load_img(t_game *game);
@@ -166,5 +164,5 @@ void			ft_fill(char **map, t_pos size, t_pos cur, char visited);
 
 int				ft_error_notification(char *why, t_game *game);
 void			ft_check_arguments(t_game *game, int argc, char *argv[]);
-
+int				ft_close_game(void);
 #endif

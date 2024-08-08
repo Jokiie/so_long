@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 11:07:56 by ccodere           #+#    #+#             */
-/*   Updated: 2024/07/17 15:10:35 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/08 13:56:34 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	ft_init_vars(t_game *game)
 	game->map.nb_players = 0;
 	game->map.width = 0;
 	game->map.height = 0;
-	game->map.origin_width = 0;
-	game->map.origin_height = 0;
 	game->map.coffees = 0;
 	game->map.exit_ok = FALSE;
 	game->moves_count = 0;
@@ -64,6 +62,4 @@ void	ft_count_tiles(t_game *game)
 		y++;
 		game->map.height = y;
 	}
-	game->map.origin_height = y;
-	game->map.origin_width = x;
 }

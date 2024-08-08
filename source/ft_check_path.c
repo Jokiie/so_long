@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccodere <ccodere@student.42quebec.com>     +#+  +:+       +#+        */
+/*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:32:15 by ccodere           #+#    #+#             */
-/*   Updated: 2024/07/10 11:53:35 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/08 13:43:05 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,19 @@ int	ft_depth_first_search(t_game *game)
 	size.y = game->map.height;
 	tmp_map = ft_make_tmp_map(game, game->map.tab);
 	if (!tmp_map)
+	{
+		tmp_map = NULL;
 		return (FALSE);
+	}
 	ft_floodfill(tmp_map, size, start);
 	if (ft_is_path_valid(game, tmp_map) == FALSE)
 	{
-		ft_free_tmp_map(game, tmp_map);
+		ft_free_tmp_map(tmp_map);
+		tmp_map = NULL;
 		return (FALSE);
 	}
-	ft_free_tmp_map(game, tmp_map);
+	ft_free_tmp_map(tmp_map);
+	tmp_map = NULL;
 	return (TRUE);
 }
 
