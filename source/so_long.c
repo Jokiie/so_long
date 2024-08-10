@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:11:40 by ccodere           #+#    #+#             */
-/*   Updated: 2024/08/08 15:01:55 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/10 13:04:43 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int	ft_close_game(void)
 {
-	exit(0);
+	exit(EXIT_SUCCESS);
 }
 
-int	ft_error_notification(char *why, t_game *game)
+int	ft_perror(char *why, t_game *game)
 {
 	if (game->map.created == TRUE)
 		ft_free_map(game);
@@ -33,10 +33,10 @@ void	ft_check_arguments(t_game *game, int argc, char *argv[])
 
 	game->map.created = FALSE;
 	if (argc != 2)
-		ft_error_notification("Format : ./so_long maps/valid/map1.ber", game);
+		ft_perror("Format : ./so_long maps/valid/map1.ber", game);
 	len = ft_strlen(argv[1]);
 	if (!ft_strnstr(&argv[1][len - 4], ".ber", 4))
-		ft_error_notification("The map must be a '.ber' file.", game);
+		ft_perror("The map must be a '.ber' file.", game);
 }
 
 int	main(int argc, char **argv)

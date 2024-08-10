@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 22:45:19 by ccodere           #+#    #+#             */
-/*   Updated: 2024/08/08 14:44:42 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/10 12:52:30 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ typedef struct s_game
 
 int				ft_depth_first_search(t_game *game);
 int				ft_is_path_valid(t_game *game, char **tmp_map);
+void			ft_free_tmp_map(char **tmp_map);
 
 void			ft_check_map(t_game *game);
 void			ft_verify_game_elements(t_game *game);
@@ -137,11 +138,7 @@ void			ft_render_new_pos(t_game *game, int new_x, int new_y,
 void			ft_print_moves(t_game *game);
 void			ft_print_win(t_game *game);
 
-void			ft_free_img(t_game *game);
-void			ft_mlx_destroy_display(t_game *game);
 void			ft_free_map(t_game *game);
-void			ft_free_tmp_map(char **tmp_map);
-void			ft_free_game(t_game *game);
 
 void			ft_init_vars(t_game *game);
 void			ft_count_elements(t_game *game, int y, int x);
@@ -162,7 +159,7 @@ char			**ft_make_tmp_map(t_game *game, char **zone);
 void			ft_floodfill(char **map, t_pos size, t_pos begin);
 void			ft_fill(char **map, t_pos size, t_pos cur, char visited);
 
-int				ft_error_notification(char *why, t_game *game);
+int				ft_perror(char *why, t_game *game);
 void			ft_check_arguments(t_game *game, int argc, char *argv[]);
 int				ft_close_game(void);
 #endif

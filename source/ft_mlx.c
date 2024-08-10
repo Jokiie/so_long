@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 23:55:59 by ccodere           #+#    #+#             */
-/*   Updated: 2024/08/08 14:39:28 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/10 12:52:10 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_img	ft_define_img(void *mlx, char *path, t_game *game)
 
 	img.xpm_ptr = mlx_xpm_file_to_image(mlx, path, &img.width, &img.height);
 	if (!img.xpm_ptr)
-		ft_error_notification("Pointer to img is null", game);
+		ft_perror("Pointer to img is NULL.", game);
 	return (img);
 }
 
@@ -48,13 +48,13 @@ void	ft_load_mlx(t_game *game)
 	if (!game->mlx_ptr)
 	{
 		free(game->mlx_ptr);
-		ft_error_notification("Error : mlx_init()", game);
+		ft_perror("Pointer to mlx_init() is NULL.", game);
 	}
 	game->win_ptr = mlx_new_window(game->mlx_ptr, game->map.width * IMG_WIDTH,
 			game->map.height * IMG_HEIGHT, "so_long");
 	if (!game->win_ptr)
 	{
 		free(game->win_ptr);
-		ft_error_notification("Error : mlx_new_window()", game);
+		ft_perror("Pointer to mlx_new_window() is NULL.", game);
 	}
 }

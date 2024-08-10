@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 23:02:15 by ccodere           #+#    #+#             */
-/*   Updated: 2024/08/08 14:29:51 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/10 12:52:43 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_read_map(t_game *game, char *argv)
 
 	map_fd = open(argv, O_RDONLY);
 	if (map_fd == -1)
-		ft_error_notification("Can't open the map.", game);
+		ft_perror("Can't open the map file.", game);
 	map = ft_strdup("");
 	while (TRUE)
 	{

@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:32:15 by ccodere           #+#    #+#             */
-/*   Updated: 2024/08/08 13:43:05 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/10 12:09:13 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,19 @@ int	ft_is_path_valid(t_game *game, char **tmp_map)
 	if (game->map.exit_ok == FALSE || game->map.coffees != game->map.nb_coffees)
 		return (FALSE);
 	return (TRUE);
+}
+
+void	ft_free_tmp_map(char **tmp_map)
+{
+	int	i;
+
+	i = -1;
+	if (tmp_map)
+	{
+		while (tmp_map && tmp_map[++i])
+			free(tmp_map[i]);
+		tmp_map[i] = NULL;
+	}
+	free(tmp_map);
+	tmp_map = NULL;
 }

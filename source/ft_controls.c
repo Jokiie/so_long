@@ -6,7 +6,7 @@
 /*   By: ccodere <ccodere@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 00:48:23 by ccodere           #+#    #+#             */
-/*   Updated: 2024/08/08 14:58:59 by ccodere          ###   ########.fr       */
+/*   Updated: 2024/08/10 13:05:21 by ccodere          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,5 @@ void	ft_print_win(t_game *game)
 	ft_printf(" =====  ===  === ===  ===   ===  ===  === === ========\n");
 	ft_printf("  ===   ===  === ===  ===    ===========  === === ====\n");
 	ft_printf("  ===    ======   ======      ==== ====   === ===  ===\n"RESET);
-	ft_printf(GREEN"\nYou won with %d moves!\n"RESET, game->moves_count);
+	ft_printf(GREEN"\n\t\tYou won with %d moves!\n"RESET, (game->moves_count + 1));
 }
