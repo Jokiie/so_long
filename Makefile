@@ -20,7 +20,7 @@ MLX_DIR = minilibx
 
 MLX = $(MLX_DIR)/libmlx.a
 
-CFLAGS = -Wall -Wextra -Werror -g -O0
+CFLAGS = -Wall -Wextra -Werror
 
 MLX_FLAGS = -Lminilibx -lmlx -framework OpenGL -framework AppKit
 
